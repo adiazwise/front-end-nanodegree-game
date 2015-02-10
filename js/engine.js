@@ -160,7 +160,14 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+          // noop
+        canvas.style.display = "none";
+        var btn = document.createElement("BUTTON");
+        btn.id = "btnStart";
+
+        var t = document.createTextNode("START GAME");       // Create a text node
+        btn.appendChild(t);                                // Append the text to <button>
+        document.body.appendChild(btn);
     }
 
     /* Go ahead and load all of the images we know we're going to need to
