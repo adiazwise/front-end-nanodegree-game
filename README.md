@@ -18,6 +18,7 @@ Instruccions:
 * Press START GAME
 * Move the character player using the keyboard arrow keys
 * Press RESTART GAME if you want start again
+* The online game is avaliable here: http://adiazwise.github.io/froggamepage/index.html
 
 
 References:
