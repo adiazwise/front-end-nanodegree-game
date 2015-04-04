@@ -1,3 +1,35 @@
-body {
-    text-align: center;
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+body{
+	font-family: 'Press Start 2P', cursive;
+}
+.wrapper {
+	max-width: 700px;
+margin: 0 auto;
+}
+.group-players{
+	display: inline-block;
+	list-style-type: none;
+	text-align: center;
+
+}
+
+.group-players li{
+display:inline-block;
+}
+
+#start-screen{
+background-position: bottom;
+	background-image: url('../images/grass-block.png');
+height: 170px;
+max-width: 710px;
+margin: 0 auto;
+}
+#start-game{
+	margin: 0 auto;
+	max-width: 505px;
+}
+
+#btnStartGame{
+margin:0 270px auto;
 }

@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Effective JavaScript: Frogger</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Frogger Game</title>
+    <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<div class="wrapper">
+	<div id="select-player">
+
+			<h1 class="text-center">WELCOME TO MY FROG GAME</h1>
+			<h3 class="text-center">Select you player</h3>
+			<ul class="group-players">
+				<li  ><img src="images/char-boy.png" onclick="setPlayer(this)" alt=""></li>
+				<li > <img src="images/char-cat-girl.png" onclick="setPlayer(this)" alt=""> </li>
+				<li > <img src="images/char-horn-girl.png" onclick="setPlayer(this)" alt="">  </li>
+				<li > <img src="images/char-pink-girl.png" onclick="setPlayer(this)" alt=""> </li>
+				<li > <img src="images/char-princess-girl.png" onclick="setPlayer(this)" alt=""> </li>
+			</ul>
+
+	</div>
+
+	<div id="start-game"></div>
+	<button type="button" id="btnStartGame" class="btn-success">START GAME</button>
+		<div id="start-screen"></div>
+		</div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
-
 
 
 </body>

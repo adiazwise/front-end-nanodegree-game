@@ -27,8 +27,10 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
+   // doc.body.appendChild(canvas);
 
+var game_container = document.querySelector('#start-game');
+game_container.appendChild(canvas);
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -39,34 +41,40 @@ var Engine = (function(global) {
          * would be the same for everyone (regardless of how fast their
          * computer is) - hurray time!
          */
-        var now = Date.now(),
-            dt = (now - lastTime) / 1000.0;
 
-        /* Call our update/render functions, pass along the time delta to
-         * our update function since it may be used for smooth animation.
-         */
-        update(dt);
-        render();
 
-        /* Set our lastTime variable which is used to determine the time delta
-         * for the next time this function is called.
-         */
-        lastTime = now;
+            var now = Date.now(),
+              //  dt = (now - lastTime) / 1000.0;
+                  dt = (now - lastTime) / 1000.0;
 
-        /* Use the browser's requestAnimationFrame function to call this
-         * function again as soon as the browser is able to draw another frame.
-         */
-        win.requestAnimationFrame(main);
-    };
+                /* Call our update/render functions, pass along the time delta to
+             * our update function since it may be used for smooth animation.
+             */
+
+            update(dt);
+            render();
+
+            /* Set our lastTime variable which is used to determine the time delta
+             * for the next time this function is called.
+             */
+            lastTime = now;
+
+            /* Use the browser's requestAnimationFrame function to call this
+             * function again as soon as the browser is able to draw another frame.
+             */
+            win.requestAnimationFrame(main);
+
+    }
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
     function init() {
-        reset();
-        lastTime = Date.now();
-        main();
+
+            reset();
+            lastTime = Date.now();
+            main();
     }
 
     /* This function is called by main (our game loop) and itself calls all
@@ -79,9 +87,9 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        updateEntities(dt);
-        // checkCollisions();
+             updateEntities(dt);
     }
+
 
     /* This is called by the update function  and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
@@ -93,6 +101,9 @@ var Engine = (function(global) {
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
+            if (enemy.checkCollision(player,enemy)){
+               player.reset();
+            }
         });
         player.update();
     }
@@ -135,8 +146,6 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-
-
         renderEntities();
     }
 
@@ -151,8 +160,10 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
         player.render();
+        player.healthDisplay();
+        player.scoreDisplay();
+        player.gameOver();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -161,13 +172,15 @@ var Engine = (function(global) {
      */
     function reset() {
           // noop
-        canvas.style.display = "none";
+       /* canvas.style.display = "none";
         var btn = document.createElement("BUTTON");
         btn.id = "btnStart";
 
         var t = document.createTextNode("START GAME");       // Create a text node
         btn.appendChild(t);                                // Append the text to <button>
-        document.body.appendChild(btn);
+        document.body.appendChild(btn);*/
+        document.getElementById("start-game").style.display = 'none';
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -179,7 +192,11 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);
 

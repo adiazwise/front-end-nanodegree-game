@@ -1,12 +1,27 @@
-frontend-nanodegree-arcade-game
+Frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+Description:
+------------
 
-for self-checking their submission.
+			*The goal in this game is cross the street avoiding run the insects into myself.
+			*Everytime that you acompish this goal you get 100 points.
+			*When you reach more than 1000 points the difficulty level is increasing.
+			* >You have 5 life on the start game and everytime that you collised you loss a life until
+			 the game is gameover.
 
-references:
 
-Random
+Instruccions:
+-------------
 
+			*Select you player from the initial screen.
+			*Press START GAME.
+			*Move the character player using the keyboard arrow keys.
+			*Press RESTART GAME if you want start again.
+
+
+References:
+----------
+https://developer.mozilla.org/en-US/docs/Web/API/document
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
